@@ -1,4 +1,7 @@
 <?php
+// Session starten (muss vor jeder Ausgabe stehen)
+session_start();
+
 // Fehlermeldungen aktivieren (während der Entwicklung)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -65,15 +68,15 @@ if ($loaded) {
 
 // Fallback-Werte definieren, falls die .env-Datei nicht geladen werden kann
 if (!$loaded || empty($_ENV['SMTP_HOST'])) {
-    $_ENV['SMTP_HOST'] = 'smtp.world4you.com';
-    $_ENV['SMTP_USERNAME'] = 'noreply@jsteindl.at';
-    $_ENV['SMTP_PASSWORD'] = 'tun7GZA3mgd!tca_mwn';
-    $_ENV['SMTP_PORT'] = '587';
-    $_ENV['SMTP_ENCRYPTION'] = 'tls';
-    $_ENV['EMAIL_TO'] = 'jonathan.steindl@jsteindl.at';
-    $_ENV['EMAIL_FROM'] = 'noreply@jsteindl.at';
+    // Fehler protokollieren
+    error_log("KRITISCH: .env-Datei konnte nicht geladen werden oder enthält unvollständige Daten!");
     
-    error_log("Fallback-Werte für ENV-Variablen gesetzt");
+    // Statt Zugangsdaten im Code zu haben, geben wir einen Fehler zurück
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Serverkonfiguration unvollständig. Bitte kontaktiere den Administrator.'
+    ]);
+    exit;
 }
 
 // Logs-Verzeichnis erstellen, falls es nicht existiert
@@ -99,6 +102,23 @@ require 'phpmailer/src/SMTP.php';
 
 // Überprüfen, ob das Formular abgesendet wurde
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Captcha-Überprüfung
+    if (isset($_POST['captcha_answer']) && isset($_SESSION['captcha_result'])) {
+        $userAnswer = (int)$_POST['captcha_answer'];
+        $correctAnswer = (int)$_SESSION['captcha_result'];
+        
+        // Captcha-Ergebnis aus der Session löschen, um Wiederverwendung zu verhindern
+        unset($_SESSION['captcha_result']);
+        
+        if ($userAnswer !== $correctAnswer) {
+            echo json_encode(['success' => false, 'message' => 'Die Captcha-Antwort ist falsch. Bitte versuche es erneut.']);
+            exit;
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha.']);
+        exit;
+    }
     
     // Temporärer Test: Alle POST-Daten in eine Datei schreiben
     file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - POST-Daten: " . print_r($_POST, true) . "\n\n", FILE_APPEND);
@@ -240,7 +260,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
 } else {
-    // Wenn das Skript direkt aufgerufen wird
-    echo json_encode(['success' => false, 'message' => 'Ungültiger Zugriff']);
+    // Wenn das Skript direkt aufgerufen wird, generiere ein neues Captcha
+    // Starte die Session, falls noch nicht geschehen
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    // Generiere zwei zufällige Zahlen zwischen 1 und 10
+    $num1 = rand(1, 10);
+    $num2 = rand(1, 10);
+    $result = $num1 + $num2;
+    
+    // Speichere das Ergebnis in der Session
+    $_SESSION['captcha_result'] = $result;
+    
+    // Gib die Captcha-Frage zurück
+    echo json_encode([
+        'success' => true,
+        'captcha_question' => "Was ist $num1 + $num2?",
+        'num1' => $num1,
+        'num2' => $num2
+    ]);
+    exit;
 }
 ?> 

@@ -1,0 +1,976 @@
+2025-04-16 19:47:12: SERVER -> CLIENT: 220 mx03lb.world4you.com ESMTP Exim 4.97.1 Wed, 16 Apr 2025 19:47:12 +0200
+
+2025-04-16 19:47:12: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:47:12: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250-STARTTLS
+250 HELP
+
+2025-04-16 19:47:12: CLIENT -> SERVER: STARTTLS
+
+2025-04-16 19:47:12: SERVER -> CLIENT: 220 TLS go ahead
+
+2025-04-16 19:47:12: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:47:12: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250 HELP
+
+2025-04-16 19:47:12: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-16 19:47:12: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-16 19:47:12: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:47:12: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-16 19:47:12: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:47:12: SERVER -> CLIENT: 235 Authentication succeeded
+
+2025-04-16 19:47:12: CLIENT -> SERVER: MAIL FROM:<noreply@jsteindl.at>
+
+2025-04-16 19:47:13: SERVER -> CLIENT: 250 OK
+
+2025-04-16 19:47:13: CLIENT -> SERVER: RCPT TO:<jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:47:13: SERVER -> CLIENT: 250 Accepted
+
+2025-04-16 19:47:13: CLIENT -> SERVER: DATA
+
+2025-04-16 19:47:13: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+2025-04-16 19:47:13: CLIENT -> SERVER: Date: Wed, 16 Apr 2025 19:47:12 +0200
+
+2025-04-16 19:47:13: CLIENT -> SERVER: To: jonathan.steindl@jsteindl.at
+
+2025-04-16 19:47:13: CLIENT -> SERVER: From: Buchbestellung <noreply@jsteindl.at>
+
+2025-04-16 19:47:13: CLIENT -> SERVER: Reply-To: Jonathan Steindl <jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:47:13: CLIENT -> SERVER: Subject: Neue Buchbestellung von Jonathan Steindl
+
+2025-04-16 19:47:13: CLIENT -> SERVER: Message-ID: <a9LBUgYgFpCXZaZfXKVAUS332N6judRX16sZgtTg@localhost>
+
+2025-04-16 19:47:13: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-16 19:47:13: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-16 19:47:13: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2025-04-16 19:47:13: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2025-04-16 19:47:13: CLIENT -> SERVER: 
+
+2025-04-16 19:47:13: CLIENT -> SERVER: 
+
+2025-04-16 19:47:13: CLIENT -> SERVER:     <html>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:     <head>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:         <title>Neue Buchbestellung</title>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:         <style>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             h2 { color: #2e7d32; }
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             th { background-color: #f2f2f2; }
+
+2025-04-16 19:47:13: CLIENT -> SERVER:         </style>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:     </head>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:     <body>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:         <div class="container">
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             <h2>Neue Buchbestellung</h2>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             <table>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <th>Name:</th>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <td>Jonathan Steindl</td>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <th>E-Mail:</th>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <td>jonathan.steindl@jsteindl.at</td>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <th>Lieferoption:</th>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <td>Versand</td>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <th>Adresse:</th>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <td>Dorfnerstraße 7</td>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <th>Nachricht:</th>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                     <td>dfgsdf</td>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:             </table>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:         </div>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:     </body>
+
+2025-04-16 19:47:13: CLIENT -> SERVER:     </html>
+
+2025-04-16 19:47:13: CLIENT -> SERVER: 
+
+2025-04-16 19:47:13: CLIENT -> SERVER: .
+
+2025-04-16 19:47:13: SERVER -> CLIENT: 250 OK id=1u56qu-000000008AG-40EN
+
+2025-04-16 19:47:13: CLIENT -> SERVER: QUIT
+
+2025-04-16 19:47:13: SERVER -> CLIENT: 221 mx03lb.world4you.com closing connection
+
+2025-04-16 19:52:05: SERVER -> CLIENT: 220 mx03lb.world4you.com ESMTP Exim 4.97.1 Wed, 16 Apr 2025 19:52:05 +0200
+
+2025-04-16 19:52:05: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:52:05: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250-STARTTLS
+250 HELP
+
+2025-04-16 19:52:05: CLIENT -> SERVER: STARTTLS
+
+2025-04-16 19:52:05: SERVER -> CLIENT: 220 TLS go ahead
+
+2025-04-16 19:52:05: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:52:05: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250 HELP
+
+2025-04-16 19:52:05: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-16 19:52:05: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-16 19:52:05: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:52:05: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-16 19:52:05: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:52:05: SERVER -> CLIENT: 235 Authentication succeeded
+
+2025-04-16 19:52:05: CLIENT -> SERVER: MAIL FROM:<noreply@jsteindl.at>
+
+2025-04-16 19:52:05: SERVER -> CLIENT: 250 OK
+
+2025-04-16 19:52:05: CLIENT -> SERVER: RCPT TO:<jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:52:06: SERVER -> CLIENT: 250 Accepted
+
+2025-04-16 19:52:06: CLIENT -> SERVER: DATA
+
+2025-04-16 19:52:06: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+2025-04-16 19:52:06: CLIENT -> SERVER: Date: Wed, 16 Apr 2025 19:52:05 +0200
+
+2025-04-16 19:52:06: CLIENT -> SERVER: To: jonathan.steindl@jsteindl.at
+
+2025-04-16 19:52:06: CLIENT -> SERVER: From: Buchbestellung <noreply@jsteindl.at>
+
+2025-04-16 19:52:06: CLIENT -> SERVER: Reply-To: Jonathan Steindl <jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:52:06: CLIENT -> SERVER: Subject: Neue Buchbestellung von Jonathan Steindl
+
+2025-04-16 19:52:06: CLIENT -> SERVER: Message-ID: <Ec8u6oX3ZQH1Px4m7LzVMZDhzDzpfTinvoOyk7yqg@localhost>
+
+2025-04-16 19:52:06: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-16 19:52:06: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-16 19:52:06: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2025-04-16 19:52:06: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2025-04-16 19:52:06: CLIENT -> SERVER: 
+
+2025-04-16 19:52:06: CLIENT -> SERVER: 
+
+2025-04-16 19:52:06: CLIENT -> SERVER:     <html>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:     <head>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:         <title>Neue Buchbestellung</title>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:         <style>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             h2 { color: #2e7d32; }
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             th { background-color: #f2f2f2; }
+
+2025-04-16 19:52:06: CLIENT -> SERVER:         </style>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:     </head>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:     <body>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:         <div class="container">
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             <h2>Neue Buchbestellung</h2>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             <table>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <th>Name:</th>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <td>Jonathan Steindl</td>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <th>E-Mail:</th>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <td>jonathan.steindl@jsteindl.at</td>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <th>Lieferoption:</th>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <td>Versand</td>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <th>Adresse:</th>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <td>Dorfnerstraße 7</td>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <th>Nachricht:</th>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                     <td>hjghjdfh</td>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:             </table>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:         </div>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:     </body>
+
+2025-04-16 19:52:06: CLIENT -> SERVER:     </html>
+
+2025-04-16 19:52:06: CLIENT -> SERVER: 
+
+2025-04-16 19:52:06: CLIENT -> SERVER: .
+
+2025-04-16 19:52:06: SERVER -> CLIENT: 250 OK id=1u56vd-000000000nQ-3TZS
+
+2025-04-16 19:52:06: CLIENT -> SERVER: QUIT
+
+2025-04-16 19:52:06: SERVER -> CLIENT: 221 mx03lb.world4you.com closing connection
+
+2025-04-16 19:52:41: SERVER -> CLIENT: 220 mx03lb.world4you.com ESMTP Exim 4.97.1 Wed, 16 Apr 2025 19:52:40 +0200
+
+2025-04-16 19:52:41: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:52:41: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250-STARTTLS
+250 HELP
+
+2025-04-16 19:52:41: CLIENT -> SERVER: STARTTLS
+
+2025-04-16 19:52:41: SERVER -> CLIENT: 220 TLS go ahead
+
+2025-04-16 19:52:41: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:52:41: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250 HELP
+
+2025-04-16 19:52:41: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-16 19:52:41: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-16 19:52:41: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:52:41: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-16 19:52:41: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:52:41: SERVER -> CLIENT: 235 Authentication succeeded
+
+2025-04-16 19:52:41: CLIENT -> SERVER: MAIL FROM:<noreply@jsteindl.at>
+
+2025-04-16 19:52:41: SERVER -> CLIENT: 250 OK
+
+2025-04-16 19:52:41: CLIENT -> SERVER: RCPT TO:<jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:52:42: SERVER -> CLIENT: 250 Accepted
+
+2025-04-16 19:52:42: CLIENT -> SERVER: DATA
+
+2025-04-16 19:52:42: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+2025-04-16 19:52:42: CLIENT -> SERVER: Date: Wed, 16 Apr 2025 19:52:41 +0200
+
+2025-04-16 19:52:42: CLIENT -> SERVER: To: jonathan.steindl@jsteindl.at
+
+2025-04-16 19:52:42: CLIENT -> SERVER: From: Buchbestellung <noreply@jsteindl.at>
+
+2025-04-16 19:52:42: CLIENT -> SERVER: Reply-To: dsaf <fasdfasdf@sdfga.com>
+
+2025-04-16 19:52:42: CLIENT -> SERVER: Subject: Neue Buchbestellung von dsaf
+
+2025-04-16 19:52:42: CLIENT -> SERVER: Message-ID: <dkYNS42pNol9ClMp6seu83EPnRWNI2O4KensBPCHxbI@localhost>
+
+2025-04-16 19:52:42: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-16 19:52:42: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-16 19:52:42: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2025-04-16 19:52:42: CLIENT -> SERVER: 
+
+2025-04-16 19:52:42: CLIENT -> SERVER: 
+
+2025-04-16 19:52:42: CLIENT -> SERVER:     <html>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:     <head>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:         <title>Neue Buchbestellung</title>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:         <style>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             h2 { color: #2e7d32; }
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             th { background-color: #f2f2f2; }
+
+2025-04-16 19:52:42: CLIENT -> SERVER:         </style>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:     </head>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:     <body>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:         <div class="container">
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             <h2>Neue Buchbestellung</h2>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             <table>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <th>Name:</th>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <td>dsaf</td>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <th>E-Mail:</th>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <td>fasdfasdf@sdfga.com</td>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <th>Lieferoption:</th>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <td>Versand</td>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <th>Adresse:</th>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <td>gfasdf</td>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <th>Nachricht:</th>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                     <td>fdgdsfag</td>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:             </table>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:         </div>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:     </body>
+
+2025-04-16 19:52:42: CLIENT -> SERVER:     </html>
+
+2025-04-16 19:52:42: CLIENT -> SERVER: 
+
+2025-04-16 19:52:42: CLIENT -> SERVER: .
+
+2025-04-16 19:52:42: SERVER -> CLIENT: 250 OK id=1u56wD-000000000sr-3DKT
+
+2025-04-16 19:52:42: CLIENT -> SERVER: QUIT
+
+2025-04-16 19:52:42: SERVER -> CLIENT: 221 mx03lb.world4you.com closing connection
+
+2025-04-16 19:54:38: SERVER -> CLIENT: 220 mx03lb.world4you.com ESMTP Exim 4.97.1 Wed, 16 Apr 2025 19:54:38 +0200
+
+2025-04-16 19:54:38: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:54:38: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250-STARTTLS
+250 HELP
+
+2025-04-16 19:54:38: CLIENT -> SERVER: STARTTLS
+
+2025-04-16 19:54:38: SERVER -> CLIENT: 220 TLS go ahead
+
+2025-04-16 19:54:39: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:54:39: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250 HELP
+
+2025-04-16 19:54:39: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-16 19:54:39: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-16 19:54:39: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:54:39: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-16 19:54:39: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:54:39: SERVER -> CLIENT: 235 Authentication succeeded
+
+2025-04-16 19:54:39: CLIENT -> SERVER: MAIL FROM:<noreply@jsteindl.at>
+
+2025-04-16 19:54:39: SERVER -> CLIENT: 250 OK
+
+2025-04-16 19:54:39: CLIENT -> SERVER: RCPT TO:<jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:54:39: SERVER -> CLIENT: 250 Accepted
+
+2025-04-16 19:54:39: CLIENT -> SERVER: DATA
+
+2025-04-16 19:54:39: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+2025-04-16 19:54:39: CLIENT -> SERVER: Date: Wed, 16 Apr 2025 19:54:38 +0200
+
+2025-04-16 19:54:39: CLIENT -> SERVER: To: jonathan.steindl@jsteindl.at
+
+2025-04-16 19:54:39: CLIENT -> SERVER: From: Buchbestellung <noreply@jsteindl.at>
+
+2025-04-16 19:54:39: CLIENT -> SERVER: Reply-To: Jonathan Steindl <jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:54:39: CLIENT -> SERVER: Subject: Neue Buchbestellung von Jonathan Steindl
+
+2025-04-16 19:54:39: CLIENT -> SERVER: Message-ID: <26MWNxQw43WJ6hOvUfriLtmc20GphNnjGE9mUplhDVE@localhost>
+
+2025-04-16 19:54:39: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-16 19:54:39: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-16 19:54:39: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2025-04-16 19:54:39: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2025-04-16 19:54:39: CLIENT -> SERVER: 
+
+2025-04-16 19:54:39: CLIENT -> SERVER: 
+
+2025-04-16 19:54:39: CLIENT -> SERVER:     <html>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:     <head>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:         <title>Neue Buchbestellung</title>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:         <style>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             h2 { color: #2e7d32; }
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             th { background-color: #f2f2f2; }
+
+2025-04-16 19:54:39: CLIENT -> SERVER:         </style>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:     </head>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:     <body>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:         <div class="container">
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             <h2>Neue Buchbestellung</h2>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             <table>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <th>Name:</th>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <td>Jonathan Steindl</td>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <th>E-Mail:</th>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <td>jonathan.steindl@jsteindl.at</td>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <th>Lieferoption:</th>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <td>Versand</td>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <th>Adresse:</th>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <td>Dorfnerstraße 7</td>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <th>Nachricht:</th>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                     <td>sdafsadgs</td>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:             </table>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:         </div>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:     </body>
+
+2025-04-16 19:54:39: CLIENT -> SERVER:     </html>
+
+2025-04-16 19:54:39: CLIENT -> SERVER: 
+
+2025-04-16 19:54:39: CLIENT -> SERVER: .
+
+2025-04-16 19:54:39: SERVER -> CLIENT: 250 OK id=1u56y7-000000001Iu-17bz
+
+2025-04-16 19:54:39: CLIENT -> SERVER: QUIT
+
+2025-04-16 19:54:40: SERVER -> CLIENT: 221 mx03lb.world4you.com closing connection
+
+2025-04-16 19:54:53: SERVER -> CLIENT: 220 mx03lb.world4you.com ESMTP Exim 4.97.1 Wed, 16 Apr 2025 19:54:53 +0200
+
+2025-04-16 19:54:53: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:54:53: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250-STARTTLS
+250 HELP
+
+2025-04-16 19:54:53: CLIENT -> SERVER: STARTTLS
+
+2025-04-16 19:54:53: SERVER -> CLIENT: 220 TLS go ahead
+
+2025-04-16 19:54:53: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:54:53: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250 HELP
+
+2025-04-16 19:54:53: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-16 19:54:53: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-16 19:54:53: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:54:53: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-16 19:54:53: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:54:54: SERVER -> CLIENT: 235 Authentication succeeded
+
+2025-04-16 19:54:54: CLIENT -> SERVER: MAIL FROM:<noreply@jsteindl.at>
+
+2025-04-16 19:54:54: SERVER -> CLIENT: 250 OK
+
+2025-04-16 19:54:54: CLIENT -> SERVER: RCPT TO:<jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:54:54: SERVER -> CLIENT: 250 Accepted
+
+2025-04-16 19:54:54: CLIENT -> SERVER: DATA
+
+2025-04-16 19:54:54: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+2025-04-16 19:54:54: CLIENT -> SERVER: Date: Wed, 16 Apr 2025 19:54:53 +0200
+
+2025-04-16 19:54:54: CLIENT -> SERVER: To: jonathan.steindl@jsteindl.at
+
+2025-04-16 19:54:54: CLIENT -> SERVER: From: Buchbestellung <noreply@jsteindl.at>
+
+2025-04-16 19:54:54: CLIENT -> SERVER: Reply-To: Jonathan Steindl <jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:54:54: CLIENT -> SERVER: Subject: Neue Buchbestellung von Jonathan Steindl
+
+2025-04-16 19:54:54: CLIENT -> SERVER: Message-ID: <eRGeIJUg0MlyL1hoAAHAaNzeaZSpyaK0S2k6EQbqjbU@localhost>
+
+2025-04-16 19:54:54: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-16 19:54:54: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-16 19:54:54: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2025-04-16 19:54:54: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2025-04-16 19:54:54: CLIENT -> SERVER: 
+
+2025-04-16 19:54:54: CLIENT -> SERVER: 
+
+2025-04-16 19:54:54: CLIENT -> SERVER:     <html>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:     <head>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:         <title>Neue Buchbestellung</title>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:         <style>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             h2 { color: #2e7d32; }
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             th { background-color: #f2f2f2; }
+
+2025-04-16 19:54:54: CLIENT -> SERVER:         </style>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:     </head>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:     <body>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:         <div class="container">
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             <h2>Neue Buchbestellung</h2>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             <table>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <th>Name:</th>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <td>Jonathan Steindl</td>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <th>E-Mail:</th>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <td>jonathan.steindl@jsteindl.at</td>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <th>Lieferoption:</th>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <td>Versand</td>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <th>Adresse:</th>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <td>Dorfnerstraße 7</td>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <th>Nachricht:</th>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                     <td>sdfasdf</td>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:             </table>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:         </div>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:     </body>
+
+2025-04-16 19:54:54: CLIENT -> SERVER:     </html>
+
+2025-04-16 19:54:54: CLIENT -> SERVER: 
+
+2025-04-16 19:54:54: CLIENT -> SERVER: .
+
+2025-04-16 19:55:06: SERVER -> CLIENT: 250 OK id=1u56yL-000000001Lq-4BUz
+
+2025-04-16 19:55:06: CLIENT -> SERVER: QUIT
+
+2025-04-16 19:55:06: SERVER -> CLIENT: 221 mx03lb.world4you.com closing connection
+
+2025-04-16 19:57:07: SERVER -> CLIENT: 220 mx03lb.world4you.com ESMTP Exim 4.97.1 Wed, 16 Apr 2025 19:57:07 +0200
+
+2025-04-16 19:57:07: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:57:07: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250-STARTTLS
+250 HELP
+
+2025-04-16 19:57:07: CLIENT -> SERVER: STARTTLS
+
+2025-04-16 19:57:07: SERVER -> CLIENT: 220 TLS go ahead
+
+2025-04-16 19:57:08: CLIENT -> SERVER: EHLO localhost
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 250-mx03lb.world4you.com Hello localhost [213.142.97.205]
+250-SIZE 157286400
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH LOGIN PLAIN
+250 HELP
+
+2025-04-16 19:57:08: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-16 19:57:08: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:57:08: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-16 19:57:08: CLIENT -> SERVER: [credentials hidden]
+2025-04-16 19:57:08: SERVER -> CLIENT: 235 Authentication succeeded
+
+2025-04-16 19:57:08: CLIENT -> SERVER: MAIL FROM:<noreply@jsteindl.at>
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 250 OK
+
+2025-04-16 19:57:08: CLIENT -> SERVER: RCPT TO:<jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 250 Accepted
+
+2025-04-16 19:57:08: CLIENT -> SERVER: DATA
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+
+2025-04-16 19:57:08: CLIENT -> SERVER: Date: Wed, 16 Apr 2025 19:57:07 +0200
+
+2025-04-16 19:57:08: CLIENT -> SERVER: To: jonathan.steindl@jsteindl.at
+
+2025-04-16 19:57:08: CLIENT -> SERVER: From: Buchbestellung <noreply@jsteindl.at>
+
+2025-04-16 19:57:08: CLIENT -> SERVER: Reply-To: Jonathan Steindl <jonathan.steindl@jsteindl.at>
+
+2025-04-16 19:57:08: CLIENT -> SERVER: Subject: Neue Buchbestellung von Jonathan Steindl
+
+2025-04-16 19:57:08: CLIENT -> SERVER: Message-ID: <ZREAgGZN9ftVSX3IV5uNU1BpZ39CFr9W0rHGH8@localhost>
+
+2025-04-16 19:57:08: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-16 19:57:08: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-16 19:57:08: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2025-04-16 19:57:08: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2025-04-16 19:57:08: CLIENT -> SERVER: 
+
+2025-04-16 19:57:08: CLIENT -> SERVER: 
+
+2025-04-16 19:57:08: CLIENT -> SERVER:     <html>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:     <head>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:         <title>Neue Buchbestellung</title>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:         <style>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             h2 { color: #2e7d32; }
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             th { background-color: #f2f2f2; }
+
+2025-04-16 19:57:08: CLIENT -> SERVER:         </style>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:     </head>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:     <body>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:         <div class="container">
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             <h2>Neue Buchbestellung</h2>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             <table>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <th>Name:</th>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <td>Jonathan Steindl</td>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <th>E-Mail:</th>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <td>jonathan.steindl@jsteindl.at</td>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <th>Lieferoption:</th>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <td>Versand</td>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <th>Adresse:</th>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <td>Dorfnerstraße 7</td>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 <tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <th>Nachricht:</th>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                     <td>sdafsdafsa</td>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:                 </tr>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:             </table>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:         </div>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:     </body>
+
+2025-04-16 19:57:08: CLIENT -> SERVER:     </html>
+
+2025-04-16 19:57:08: CLIENT -> SERVER: 
+
+2025-04-16 19:57:08: CLIENT -> SERVER: .
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 250 OK id=1u570W-000000001mU-1SAQ
+
+2025-04-16 19:57:08: CLIENT -> SERVER: QUIT
+
+2025-04-16 19:57:08: SERVER -> CLIENT: 221 mx03lb.world4you.com closing connection
+

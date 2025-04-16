@@ -165,7 +165,7 @@
           <h2>Bestellen Sie Ihr Exemplar</h2>
           
           <!-- Optimiertes Formular -->
-          <form action="send-mail.php" method="post" class="order-form">
+          <form id="order-form" action="send-mail.php" method="post" class="order-form">
             <div class="form-row">
               <div class="form-group">
                 <label for="name" class="required-field">Name</label>
@@ -194,6 +194,12 @@
             <div class="form-group">
               <label for="message">Nachricht (optional)</label>
               <textarea id="message" name="message" placeholder="Haben Sie besondere Wünsche oder Anmerkungen?"></textarea>
+            </div>
+            
+            <!-- Captcha-Bereich -->
+            <div class="form-group" id="captcha-container">
+                <label for="captcha_answer" id="captcha-question">Bitte warte, Captcha wird geladen...</label>
+                <input type="number" class="form-control" id="captcha_answer" name="captcha_answer" required>
             </div>
             
             <div class="form-group">
@@ -288,6 +294,13 @@
             setTimeout(() => {
               resultDiv.style.display = 'none';
             }, 5000);
+          } else {
+            // Wenn die Captcha-Antwort falsch war, neues Captcha laden
+            loadCaptcha();
+            // Nach 5 Sekunden die Fehlermeldung ausblenden
+            setTimeout(() => {
+              resultDiv.style.display = 'none';
+            }, 5000);
           }
           
           // Zum Ergebnis scrollen
@@ -298,6 +311,14 @@
           resultDiv.innerHTML = 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
           resultDiv.className = 'error-message';
           resultDiv.style.display = 'block';
+          
+          // Bei Fehler auch neues Captcha laden
+          loadCaptcha();
+          
+          // Nach 5 Sekunden die Fehlermeldung ausblenden
+          setTimeout(() => {
+            resultDiv.style.display = 'none';
+          }, 5000);
         });
       });
 
@@ -319,5 +340,8 @@
       // ===== DATENSCHUTZ-BANNER JAVASCRIPT ENDE =====
     });
   </script>
+
+  <!-- Vor dem schließenden </body> Tag -->
+  <script src="js/captcha.js"></script>
 </body>
 </html> 
