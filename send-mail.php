@@ -218,11 +218,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Content-Type-Header setzen
             header('Content-Type: application/json');
             
-            // Temporär: Erlaube die Fortsetzung trotz fehlendem Token
-            // echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha erneut.']);
-            // exit;
-            
-            error_log("Captcha-Überprüfung temporär deaktiviert - Token nicht gefunden, aber wir fahren fort");
+            // Aktiviere die Captcha-Überprüfung wieder
+            echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha erneut.']);
+            exit;
         }
     } else {
         error_log("Keine Captcha-Antwort oder Token erhalten");
