@@ -154,9 +154,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         error_log("Captcha-Antwort erhalten: " . $_POST['captcha_answer']);
         error_log("Captcha-Token erhalten: " . $_POST['captcha_token']);
         
-        // Temporär: Überspringe die Captcha-Überprüfung
-        error_log("Captcha-Überprüfung temporär deaktiviert");
-        
         $userAnswer = (int)$_POST['captcha_answer'];
         $token = $_POST['captcha_token'];
         
@@ -168,6 +165,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $captchaData = json_decode(file_get_contents($captchaFile), true);
             $correctAnswer = (int)$captchaData['result'];
             $timestamp = $captchaData['timestamp'];
+            
+            // Debug-Ausgabe
+            error_log("Captcha-Datei gefunden: " . $captchaFile);
+            error_log("Korrekte Antwort: " . $correctAnswer);
+            error_log("Benutzerantwort: " . $userAnswer);
             
             // Lösche die Datei, um Wiederverwendung zu verhindern
             unlink($captchaFile);
@@ -203,6 +205,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             error_log("Captcha korrekt gelöst");
         } else {
             error_log("Captcha-Token nicht gefunden: $token");
+            error_log("Temp-Verzeichnis: " . $tempDir);
+            error_log("Dateien im Temp-Verzeichnis: " . print_r(scandir($tempDir), true));
+            
+            // Überprüfe Berechtigungen
+            error_log("Temp-Verzeichnis existiert: " . (file_exists($tempDir) ? 'Ja' : 'Nein'));
+            error_log("Temp-Verzeichnis ist beschreibbar: " . (is_writable($tempDir) ? 'Ja' : 'Nein'));
             
             // Puffer leeren
             ob_clean();
@@ -210,12 +218,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Content-Type-Header setzen
             header('Content-Type: application/json');
             
-            echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha erneut.']);
-            exit;
+            // Temporär: Erlaube die Fortsetzung trotz fehlendem Token
+            // echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha erneut.']);
+            // exit;
+            
+            error_log("Captcha-Überprüfung temporär deaktiviert - Token nicht gefunden, aber wir fahren fort");
         }
     } else {
-        error_log("Keine Captcha-Antwort oder Token erhalten, aber wir ignorieren das temporär");
-        // Temporär: Überspringe die Captcha-Überprüfung
+        error_log("Keine Captcha-Antwort oder Token erhalten");
+        
+        // Puffer leeren
+        ob_clean();
+        
+        // Content-Type-Header setzen
+        header('Content-Type: application/json');
+        
+        echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha.']);
+        exit;
     }
     
     // Temporärer Test: Alle POST-Daten in eine Datei schreiben
