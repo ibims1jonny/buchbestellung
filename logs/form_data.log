@@ -103,3 +103,95 @@
 2025-04-16 19:58:53 - Content-Type: multipart/form-data; boundary=----geckoformboundarybd891f1549f963e5c79730f06e4b7f3a
 2025-04-16 19:58:53 - HTTP_ACCEPT: */*
 
+2025-04-16 20:18:55 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => sdf
+    [captcha_answer] => 11
+)
+
+
+2025-04-16 20:18:55 - REQUEST_METHOD: POST
+2025-04-16 20:18:55 - Content-Type: multipart/form-data; boundary=----geckoformboundarya33eaed086aaa39be8242889515a9979
+2025-04-16 20:18:55 - HTTP_ACCEPT: */*
+
+2025-04-16 20:22:14 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => sadfsad
+    [captcha_answer] => 14
+)
+
+
+2025-04-16 20:22:14 - REQUEST_METHOD: POST
+2025-04-16 20:22:14 - Content-Type: multipart/form-data; boundary=----geckoformboundary9bc1258ca70177320d4c2a6e07ae94f
+2025-04-16 20:22:14 - HTTP_ACCEPT: */*
+
+2025-04-16 20:28:07 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => jgkfzujikrtu
+    [captcha_answer] => 20
+)
+
+
+2025-04-16 20:28:07 - REQUEST_METHOD: POST
+2025-04-16 20:28:07 - Content-Type: multipart/form-data; boundary=----geckoformboundary2b1ec715ae856f43f76a4a57c561b245
+2025-04-16 20:28:07 - HTTP_ACCEPT: */*
+
+2025-04-16 20:30:40 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => 
+    [captcha_answer] => 13
+)
+
+
+2025-04-16 20:30:40 - REQUEST_METHOD: POST
+2025-04-16 20:30:40 - Content-Type: multipart/form-data; boundary=----geckoformboundary7e92fc7126425509ee28e60455be1159
+2025-04-16 20:30:40 - HTTP_ACCEPT: */*
+
+2025-04-16 20:32:19 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => sdfsdfgsdaf
+    [captcha_answer] => 10
+    [captcha_token] => 9ce6e28fe54ac4acb457fc983ca04aa6
+)
+
+
+2025-04-16 20:32:19 - REQUEST_METHOD: POST
+2025-04-16 20:32:19 - Content-Type: multipart/form-data; boundary=----geckoformboundaryb55de4ea1b6f50cd50de967c9d7e0c29
+2025-04-16 20:32:19 - HTTP_ACCEPT: */*
+
+2025-04-16 20:35:03 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => 
+    [captcha_answer] => 10
+    [captcha_token] => 03b0bf45c049918892f374980f064a47
+)
+
+
+2025-04-16 20:35:03 - REQUEST_METHOD: POST
+2025-04-16 20:35:03 - Content-Type: multipart/form-data; boundary=----geckoformboundaryd3fa49dd55ada58033548127ee43aaee
+2025-04-16 20:35:03 - HTTP_ACCEPT: */*
+

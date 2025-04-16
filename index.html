@@ -227,16 +227,15 @@
   </div>
 
   <!-- ===== DATENSCHUTZ-BANNER START ===== -->
-  <!-- Um den Banner komplett zu deaktivieren, kommentieren Sie diesen Block aus oder löschen Sie ihn -->
   <div id="privacy-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.85); color: white; padding: 15px 20px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);">
     <div style="flex: 1; max-width: 80%;">
       <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 18px;">Datenschutz</h3>
       <p style="margin: 0; font-size: 14px; line-height: 1.5;">
-        Diese Website verwendet keine Cookies und erhebt keine personenbezogenen Daten von Besuchern. Bei Bestellungen werden die angegebenen Daten ausschließlich zur Abwicklung der Bestellung verwendet und nicht an Dritte weitergegeben.
+        Diese Website verwendet keine Cookies. Wir speichern lediglich Ihre Einstellung zum Datenschutz-Banner lokal in Ihrem Browser (localStorage). Diese Information verlässt Ihr Gerät nicht. Bei der Nutzung des Bestellformulars werden temporäre Dateien für das Captcha-System erstellt. Bei Bestellungen werden die angegebenen Daten ausschließlich zur Abwicklung der Bestellung verwendet und nicht an Dritte weitergegeben.
       </p>
     </div>
     <div style="margin-left: 20px;">
-      <button id="accept-privacy" style="background-color: #2e7d32; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">Akzeptieren</button>
+      <button id="accept-privacy" style="background-color: #2e7d32; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">Verstanden</button>
     </div>
   </div>
   <!-- ===== DATENSCHUTZ-BANNER ENDE ===== -->
@@ -272,58 +271,82 @@
       form.addEventListener('submit', function(event) {
         event.preventDefault(); // Standard-Formularverhalten verhindern
         
+        console.log("Formular wird abgesendet...");
+        
         // Formulardaten sammeln
         const formData = new FormData(form);
         
+        // Formulardaten zur Überprüfung ausgeben
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+        
         // AJAX-Anfrage senden
         fetch('send-mail.php', {
-          method: 'POST',
-          body: formData
+            method: 'POST',
+            body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log("Antwort erhalten:", response);
+            
+            // Überprüfen, ob die Antwort erfolgreich war
+            if (!response.ok) {
+                throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+            }
+            
+            // Überprüfen, ob die Antwort JSON ist
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                console.error('Unerwarteter Content-Type:', contentType);
+                throw new Error('Antwort ist kein JSON');
+            }
+            
+            return response.json();
+        })
         .then(data => {
-          // Erfolgs- oder Fehlermeldung anzeigen
-          resultDiv.innerHTML = data.message;
-          resultDiv.className = data.success ? 'success-message' : 'error-message';
-          resultDiv.style.display = 'block';
-          
-          // Bei Erfolg das Formular zurücksetzen
-          if (data.success) {
-            form.reset();
-            // Nach 5 Sekunden die Meldung ausblenden
-            setTimeout(() => {
-              resultDiv.style.display = 'none';
-            }, 5000);
-          } else {
-            // Wenn die Captcha-Antwort falsch war, neues Captcha laden
-            loadCaptcha();
-            // Nach 5 Sekunden die Fehlermeldung ausblenden
-            setTimeout(() => {
-              resultDiv.style.display = 'none';
-            }, 5000);
-          }
-          
-          // Zum Ergebnis scrollen
-          resultDiv.scrollIntoView({ behavior: 'smooth' });
+            console.log("Verarbeitete Daten:", data);
+            
+            // Erfolgs- oder Fehlermeldung anzeigen
+            resultDiv.innerHTML = data.message;
+            resultDiv.className = data.success ? 'success-message' : 'error-message';
+            resultDiv.style.display = 'block';
+            
+            // Bei Erfolg das Formular zurücksetzen
+            if (data.success) {
+                form.reset();
+                // Nach 5 Sekunden die Meldung ausblenden
+                setTimeout(() => {
+                    resultDiv.style.display = 'none';
+                }, 5000);
+            } else {
+                // Wenn die Captcha-Antwort falsch war, neues Captcha laden
+                loadCaptcha();
+                // Nach 5 Sekunden die Fehlermeldung ausblenden
+                setTimeout(() => {
+                    resultDiv.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Zum Ergebnis scrollen
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
-          console.error('Fehler:', error);
-          resultDiv.innerHTML = 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
-          resultDiv.className = 'error-message';
-          resultDiv.style.display = 'block';
-          
-          // Bei Fehler auch neues Captcha laden
-          loadCaptcha();
-          
-          // Nach 5 Sekunden die Fehlermeldung ausblenden
-          setTimeout(() => {
-            resultDiv.style.display = 'none';
-          }, 5000);
+            console.error('Fehler:', error);
+            resultDiv.innerHTML = 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+            resultDiv.className = 'error-message';
+            resultDiv.style.display = 'block';
+            
+            // Bei Fehler auch neues Captcha laden
+            loadCaptcha();
+            
+            // Nach 5 Sekunden die Fehlermeldung ausblenden
+            setTimeout(() => {
+                resultDiv.style.display = 'none';
+            }, 5000);
         });
       });
 
       // ===== DATENSCHUTZ-BANNER JAVASCRIPT START =====
-      // Um die Banner-Funktionalität zu deaktivieren, kommentieren Sie diesen Block aus
       const privacyBanner = document.getElementById('privacy-banner');
       const acceptButton = document.getElementById('accept-privacy');
       
@@ -332,7 +355,7 @@
         privacyBanner.style.display = 'none';
       }
       
-      // Banner bei Klick auf "Akzeptieren" ausblenden und in localStorage speichern
+      // Banner bei Klick auf "Verstanden" ausblenden und in localStorage speichern
       acceptButton.addEventListener('click', function() {
         privacyBanner.style.display = 'none';
         localStorage.setItem('privacyAccepted', 'true');
