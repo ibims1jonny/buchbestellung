@@ -4,6 +4,18 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Logs-Verzeichnis erstellen, falls es nicht existiert
+$logDir = __DIR__ . '/logs';
+if (!file_exists($logDir)) {
+    mkdir($logDir, 0777, true);
+}
+
+// Logdateipfade definieren
+$formLogFile = $logDir . '/form_data.log';
+$smtpLogFile = $logDir . '/smtp_debug.log';
+$successLogFile = $logDir . '/email_success.log';
+$errorLogFile = $logDir . '/email_error.log';
+
 // PHPMailer-Klassen einbinden
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -17,16 +29,16 @@ require 'phpmailer/src/SMTP.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Temporärer Test: Alle POST-Daten in eine Datei schreiben
-    file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - POST-Daten: " . print_r($_POST, true) . "\n\n", FILE_APPEND);
+    file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - POST-Daten: " . print_r($_POST, true) . "\n\n", FILE_APPEND);
     
     // Zusätzliche Debug-Informationen
-    file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - REQUEST_METHOD: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND);
+    file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - REQUEST_METHOD: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND);
     if (isset($_SERVER["CONTENT_TYPE"])) {
-        file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - Content-Type: " . $_SERVER["CONTENT_TYPE"] . "\n", FILE_APPEND);
+        file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - Content-Type: " . $_SERVER["CONTENT_TYPE"] . "\n", FILE_APPEND);
     } else {
-        file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - Content-Type nicht gesetzt\n", FILE_APPEND);
+        file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - Content-Type nicht gesetzt\n", FILE_APPEND);
     }
-    file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - HTTP_ACCEPT: " . $_SERVER["HTTP_ACCEPT"] . "\n\n", FILE_APPEND);
+    file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - HTTP_ACCEPT: " . $_SERVER["HTTP_ACCEPT"] . "\n\n", FILE_APPEND);
     
     // Debug-Ausgaben entfernen
     // echo "<pre>POST-Daten: ";
@@ -42,11 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Validierung der E-Mail-Adresse mit besserer Fehlermeldung
     if (empty($email)) {
-        file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - Fehler: E-Mail ist leer\n", FILE_APPEND);
+        file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - Fehler: E-Mail ist leer\n", FILE_APPEND);
         echo json_encode(['success' => false, 'message' => 'Bitte gib eine E-Mail-Adresse ein.']);
         exit;
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        file_put_contents('form_data.log', date('Y-m-d H:i:s') . " - Fehler: E-Mail ist ungültig: $email\n", FILE_APPEND);
+        file_put_contents($formLogFile, date('Y-m-d H:i:s') . " - Fehler: E-Mail ist ungültig: $email\n", FILE_APPEND);
         echo json_encode(['success' => false, 'message' => 'Die eingegebene E-Mail-Adresse ist ungültig.']);
         exit;
     }
@@ -119,8 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Server-Einstellungen
         $mail->SMTPDebug = 2;                      // Debug-Ausgabe aktivieren
-        $mail->Debugoutput = function($str, $level) {
-            file_put_contents('smtp_debug.log', date('Y-m-d H:i:s').": $str\n", FILE_APPEND);
+        $mail->Debugoutput = function($str, $level) use ($smtpLogFile) {
+            file_put_contents($smtpLogFile, date('Y-m-d H:i:s').": $str\n", FILE_APPEND);
         };
         $mail->isSMTP();                           // SMTP verwenden
         $mail->Host       = 'smtp.world4you.com';  // SMTP-Server
@@ -145,12 +157,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         
         // Erfolg in Logdatei schreiben
-        file_put_contents('email_success.log', date('Y-m-d H:i:s') . " - E-Mail erfolgreich gesendet an: $to\n", FILE_APPEND);
+        file_put_contents($successLogFile, date('Y-m-d H:i:s') . " - E-Mail erfolgreich gesendet an: $to\n", FILE_APPEND);
         
         echo json_encode(['success' => true, 'message' => 'Vielen Dank für deine Bestellung! Wir werden uns bald bei dir melden.']);
     } catch (Exception $e) {
         // Fehler in Logdatei schreiben
-        file_put_contents('email_error.log', date('Y-m-d H:i:s') . " - Fehler beim Senden der E-Mail: " . $mail->ErrorInfo . "\n", FILE_APPEND);
+        file_put_contents($errorLogFile, date('Y-m-d H:i:s') . " - Fehler beim Senden der E-Mail: " . $mail->ErrorInfo . "\n", FILE_APPEND);
         
         echo json_encode(['success' => false, 'message' => 'Beim Senden der Bestellung ist ein Fehler aufgetreten: ' . $mail->ErrorInfo]);
     }
