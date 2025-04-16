@@ -4,6 +4,40 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Einfache Funktion zum Laden von .env-Dateien
+function loadEnv($path) {
+    if (!file_exists($path)) {
+        return false;
+    }
+    
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        // Kommentare überspringen
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+        
+        list($name, $value) = explode('=', $line, 2);
+        $name = trim($name);
+        $value = trim($value);
+        
+        // Anführungszeichen entfernen, falls vorhanden
+        if (strpos($value, '"') === 0 && substr($value, -1) === '"') {
+            $value = substr($value, 1, -1);
+        } elseif (strpos($value, "'") === 0 && substr($value, -1) === "'") {
+            $value = substr($value, 1, -1);
+        }
+        
+        putenv("$name=$value");
+        $_ENV[$name] = $value;
+    }
+    
+    return true;
+}
+
+// .env-Datei laden
+loadEnv(__DIR__ . '/.env');
+
 // Logs-Verzeichnis erstellen, falls es nicht existiert
 $logDir = __DIR__ . '/logs';
 if (!file_exists($logDir)) {
@@ -63,9 +97,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
     
-    // E-Mail-Empfänger und Absender
-    $to = 'jonathan.steindl@jsteindl.at'; // Alternative E-Mail-Adresse
-    $from = 'noreply@jsteindl.at';
+    // E-Mail-Empfänger und Absender aus Umgebungsvariablen
+    $to = $_ENV['EMAIL_TO'];
+    $from = $_ENV['EMAIL_FROM'];
     
     // E-Mail-Betreff
     $subject = 'Neue Buchbestellung von ' . $name;
@@ -135,12 +169,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             file_put_contents($smtpLogFile, date('Y-m-d H:i:s').": $str\n", FILE_APPEND);
         };
         $mail->isSMTP();                           // SMTP verwenden
-        $mail->Host       = 'smtp.world4you.com';  // SMTP-Server
+        $mail->Host       = $_ENV['SMTP_HOST'];    // SMTP-Server aus Umgebungsvariable
         $mail->SMTPAuth   = true;                  // SMTP-Authentifizierung aktivieren
-        $mail->Username   = 'noreply@jsteindl.at'; // SMTP-Benutzername
-        $mail->Password   = 'xpihTYJbHL3DeDbh6dHr'; // SMTP-Passwort
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // TLS-Verschlüsselung aktivieren
-        $mail->Port       = 587;                   // TCP-Port (meist 587 für TLS)
+        $mail->Username   = $_ENV['SMTP_USERNAME']; // SMTP-Benutzername aus Umgebungsvariable
+        $mail->Password   = $_ENV['SMTP_PASSWORD']; // SMTP-Passwort aus Umgebungsvariable
+        $mail->SMTPSecure = $_ENV['SMTP_ENCRYPTION'] === 'tls' ? PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port       = (int)$_ENV['SMTP_PORT']; // TCP-Port aus Umgebungsvariable
         
         // Absender und Empfänger
         $mail->setFrom($from, 'Buchbestellung');
