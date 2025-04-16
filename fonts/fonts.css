@@ -1,0 +1,81 @@
+/* Playfair Display Regular */
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    src: url('PlayfairDisplay-Regular.woff2') format('woff2'),
+         url('PlayfairDisplay-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+/* Playfair Display Italic */
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 400;
+    src: url('PlayfairDisplay-Italic.woff2') format('woff2'),
+         url('PlayfairDisplay-Italic.woff') format('woff');
+    font-display: swap;
+}
+
+/* Open Sans Regular */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('OpenSans-Regular.woff2') format('woff2'),
+         url('OpenSans-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+/* Open Sans Bold */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('OpenSans-Bold.woff2') format('woff2'),
+         url('OpenSans-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+/* Raleway */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url('Raleway-Light.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('Raleway-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url('Raleway-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url('Raleway-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Fallback für Playfair Display Bold - verwendet Raleway Bold */
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    src: url('Raleway-Bold.woff2') format('woff2');
+    font-display: swap;
+} 

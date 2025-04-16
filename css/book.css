@@ -1,0 +1,408 @@
+/* Grundlegende Einstellungen */
+:root {
+  --primary-color: #3a5a40;
+  --secondary-color: #588157;
+  --accent-color: #a3b18a;
+  --text-color: #344e41;
+  --light-color: #dad7cd;
+  --white: #ffffff;
+  --black: #1a1a1a;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+.site-header {
+  padding: 1.5rem 0;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  max-height: 120px;
+  width: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav li {
+  margin-left: 2rem;
+}
+
+.main-nav a {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.main-nav a:hover {
+  color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), 
+                    url('../bilder/background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.book-info {
+  flex: 1;
+}
+
+.author {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.book-description {
+  margin-bottom: 2rem;
+}
+
+.book-meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.cta-button:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.book-cover {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.book-cover img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.book-cover img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Order Section */
+.order-section {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.order-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--light-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(88, 129, 87, 0.2);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-option input[type="radio"] {
+  width: auto;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem 0;
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--light-color);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .book-meta {
+    justify-content: center;
+  }
+  
+  .book-cover {
+    order: -1;
+  }
+  
+  .book-cover img {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .site-header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .main-nav ul {
+    justify-content: center;
+  }
+  
+  .main-nav li {
+    margin: 0 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .logo-image {
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 0;
+  }
+  
+  .book-cover img {
+    max-width: 90%;
+  }
+  
+  .price {
+    font-size: 1.5rem;
+  }
+  
+  .book-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Impressum Styling */
+.content-section {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.impressum-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.impressum-content h2 {
+  margin-top: 2rem;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.impressum-content p {
+  margin-bottom: 1.5rem;
+} 

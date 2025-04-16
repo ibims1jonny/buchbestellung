@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zwischen mir und der Welt | Birgit Steindl</title>
+  
+  <!-- Fonts -->
+  <link rel="stylesheet" href="fonts/fonts.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/book.css">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="bilder/favicon.png">
+
+  <!-- jQuery -->
+  <script src="js/jquery-3.7.1.min.js"></script>
+  
+  <style>
+    /* Formular-Styling */
+    .order-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+      outline: none;
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .form-group button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .form-group button:hover {
+      background-color: #1b5e20;
+    }
+    
+    .required-field::after {
+      content: "*";
+      color: #e53935;
+      margin-left: 4px;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+    }
+    
+    #order-result {
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+    
+    .success-message {
+      background-color: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      color: #2e7d32;
+    }
+    
+    .error-message {
+      background-color: #ffebee;
+      border: 1px solid #ef9a9a;
+      color: #c62828;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="container">
+        <a href="https://einfach-viel-erreichen.com/" class="logo">
+          <img src="bilder/logo.png" alt="einfach viel erreichen" class="logo-image">
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="book-info">
+              <h1>Zwischen mir und der Welt</h1>
+              <p class="author">Birgit Steindl</p>
+              <div class="book-description">
+                <p>Ein bewegendes Werk über die Verbindung zwischen dem Inneren und der Außenwelt. Birgit Steindl nimmt uns mit auf eine Reise der Selbstentdeckung und Reflexion.</p>
+              </div>
+              <div class="book-meta">
+                <span class="price">15€</span>
+                <a href="#order" class="cta-button">Jetzt bestellen</a>
+              </div>
+            </div>
+            <div class="book-cover">
+              <img src="bilder/cover.jpg" alt="Buchcover: Zwischen mir und der Welt">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="order" class="order-section">
+        <div class="container">
+          <h2>Bestellen Sie Ihr Exemplar</h2>
+          
+          <!-- Optimiertes Formular -->
+          <form action="send-mail.php" method="post" class="order-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" class="required-field">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="required-field">E-Mail</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="delivery" class="required-field">Lieferoption</label>
+              <select id="delivery" name="delivery" required>
+                <option value="shipping">Versand an meine Adresse (+3,29€)</option>
+                <option value="pickup">Ich hole das Buch ab (+0,00€)</option>
+              </select>
+            </div>
+            
+            <div class="form-group" id="address-group">
+              <label for="address">Adresse</label>
+              <textarea id="address" name="address" placeholder="Straße, Hausnummer, PLZ, Ort"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Nachricht (optional)</label>
+              <textarea id="message" name="message" placeholder="Haben Sie besondere Wünsche oder Anmerkungen?"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <button type="submit">Jetzt bestellen</button>
+            </div>
+          </form>
+          
+          <div id="order-result" style="display: none;"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <p>&copy; 2023 Birgit Steindl. Alle Rechte vorbehalten.</p>
+          </div>
+          <div class="footer-links">
+            <a href="impressum.html">Impressum</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== DATENSCHUTZ-BANNER START ===== -->
+  <!-- Um den Banner komplett zu deaktivieren, kommentieren Sie diesen Block aus oder löschen Sie ihn -->
+  <div id="privacy-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.85); color: white; padding: 15px 20px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="flex: 1; max-width: 80%;">
+      <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 18px;">Datenschutz</h3>
+      <p style="margin: 0; font-size: 14px; line-height: 1.5;">
+        Diese Website verwendet keine Cookies und erhebt keine personenbezogenen Daten von Besuchern. Bei Bestellungen werden die angegebenen Daten ausschließlich zur Abwicklung der Bestellung verwendet und nicht an Dritte weitergegeben.
+      </p>
+    </div>
+    <div style="margin-left: 20px;">
+      <button id="accept-privacy" style="background-color: #2e7d32; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">Akzeptieren</button>
+    </div>
+  </div>
+  <!-- ===== DATENSCHUTZ-BANNER ENDE ===== -->
+
+  <script src="js/book.js"></script>
+  
+  <!-- Verbesserte JavaScript-Funktionalität -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.order-form');
+      const deliverySelect = document.getElementById('delivery');
+      const addressGroup = document.getElementById('address-group');
+      const resultDiv = document.getElementById('order-result');
+      
+      // Adressfeld anzeigen/ausblenden basierend auf der Lieferoption
+      function updateAddressVisibility() {
+        if (deliverySelect.value === 'shipping') {
+          addressGroup.style.display = 'block';
+          document.getElementById('address').setAttribute('required', '');
+        } else {
+          addressGroup.style.display = 'none';
+          document.getElementById('address').removeAttribute('required');
+        }
+      }
+      
+      // Initial ausführen
+      updateAddressVisibility();
+      
+      // Bei Änderung der Lieferoption
+      deliverySelect.addEventListener('change', updateAddressVisibility);
+      
+      // Formular-Feedback nach Absenden mit AJAX
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Standard-Formularverhalten verhindern
+        
+        // Formulardaten sammeln
+        const formData = new FormData(form);
+        
+        // AJAX-Anfrage senden
+        fetch('send-mail.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Erfolgs- oder Fehlermeldung anzeigen
+          resultDiv.innerHTML = data.message;
+          resultDiv.className = data.success ? 'success-message' : 'error-message';
+          resultDiv.style.display = 'block';
+          
+          // Bei Erfolg das Formular zurücksetzen
+          if (data.success) {
+            form.reset();
+            // Nach 5 Sekunden die Meldung ausblenden
+            setTimeout(() => {
+              resultDiv.style.display = 'none';
+            }, 5000);
+          }
+          
+          // Zum Ergebnis scrollen
+          resultDiv.scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(error => {
+          console.error('Fehler:', error);
+          resultDiv.innerHTML = 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+          resultDiv.className = 'error-message';
+          resultDiv.style.display = 'block';
+        });
+      });
+
+      // ===== DATENSCHUTZ-BANNER JAVASCRIPT START =====
+      // Um die Banner-Funktionalität zu deaktivieren, kommentieren Sie diesen Block aus
+      const privacyBanner = document.getElementById('privacy-banner');
+      const acceptButton = document.getElementById('accept-privacy');
+      
+      // Prüfen, ob der Banner bereits akzeptiert wurde
+      if (localStorage.getItem('privacyAccepted') === 'true') {
+        privacyBanner.style.display = 'none';
+      }
+      
+      // Banner bei Klick auf "Akzeptieren" ausblenden und in localStorage speichern
+      acceptButton.addEventListener('click', function() {
+        privacyBanner.style.display = 'none';
+        localStorage.setItem('privacyAccepted', 'true');
+      });
+      // ===== DATENSCHUTZ-BANNER JAVASCRIPT ENDE =====
+    });
+  </script>
+</body>
+</html> 

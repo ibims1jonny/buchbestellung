@@ -1,0 +1,14 @@
+2025-04-16 01:59:45 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => joni.steindl@gmail.com
+    [delivery] => pickup
+    [address] => 
+    [message] => Penisgang
+)
+
+
+2025-04-16 01:59:45 - REQUEST_METHOD: POST
+2025-04-16 01:59:45 - Content-Type: multipart/form-data; boundary=----WebKitFormBoundarygL0Swek3rwAd1pH2
+2025-04-16 01:59:45 - HTTP_ACCEPT: */*
+
