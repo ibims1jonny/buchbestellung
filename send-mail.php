@@ -11,10 +11,10 @@ if (!file_exists($logDir)) {
 }
 
 // Logdateipfade definieren
-$formLogFile = $logDir . '/logs/form_data.log';
-$smtpLogFile = $logDir . '/logs/smtp_debug.log';
-$successLogFile = $logDir . '/logs/email_success.log';
-$errorLogFile = $logDir . '/logs/email_error.log';
+$formLogFile = $logDir . '/form_data.log';
+$smtpLogFile = $logDir . '/smtp_debug.log';
+$successLogFile = $logDir . '/email_success.log';
+$errorLogFile = $logDir . '/email_error.log';
 
 // PHPMailer-Klassen einbinden
 use PHPMailer\PHPMailer\PHPMailer;
