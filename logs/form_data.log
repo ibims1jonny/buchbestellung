@@ -88,3 +88,18 @@
 2025-04-16 19:57:07 - Content-Type: multipart/form-data; boundary=----geckoformboundary1e1b8e13229d5f2fd04fb2a7716a135
 2025-04-16 19:57:07 - HTTP_ACCEPT: */*
 
+2025-04-16 19:58:53 - POST-Daten: Array
+(
+    [name] => Jonathan Steindl
+    [email] => jonathan.steindl@jsteindl.at
+    [delivery] => shipping
+    [address] => Dorfnerstraße 7
+    [message] => fsdgasd
+    [captcha_answer] => 8
+)
+
+
+2025-04-16 19:58:53 - REQUEST_METHOD: POST
+2025-04-16 19:58:53 - Content-Type: multipart/form-data; boundary=----geckoformboundarybd891f1549f963e5c79730f06e4b7f3a
+2025-04-16 19:58:53 - HTTP_ACCEPT: */*
+
