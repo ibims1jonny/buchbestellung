@@ -151,8 +151,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Captcha-Überprüfung
     if (isset($_POST['captcha_answer']) && isset($_POST['captcha_token'])) {
-        error_log("Captcha-Antwort erhalten: " . $_POST['captcha_answer']);
-        error_log("Captcha-Token erhalten: " . $_POST['captcha_token']);
+        error_log("SEND-MAIL: Captcha-Antwort erhalten: " . $_POST['captcha_answer']);
+        error_log("SEND-MAIL: Captcha-Token erhalten: " . $_POST['captcha_token']);
         
         $userAnswer = (int)$_POST['captcha_answer'];
         $token = $_POST['captcha_token'];
@@ -161,22 +161,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tempDir = __DIR__ . '/temp';
         $captchaFile = $tempDir . '/' . $token . '.json';
         
+        error_log("SEND-MAIL: Suche Captcha-Datei: $captchaFile");
+        error_log("SEND-MAIL: Temp-Verzeichnis existiert: " . (file_exists($tempDir) ? 'Ja' : 'Nein'));
+        
+        if (file_exists($tempDir)) {
+            error_log("SEND-MAIL: Dateien im Temp-Verzeichnis: " . implode(", ", scandir($tempDir)));
+        }
+        
         if (file_exists($captchaFile)) {
-            $captchaData = json_decode(file_get_contents($captchaFile), true);
-            $correctAnswer = (int)$captchaData['result'];
-            $timestamp = $captchaData['timestamp'];
+            error_log("SEND-MAIL: Captcha-Datei gefunden");
             
-            // Debug-Ausgabe
-            error_log("Captcha-Datei gefunden: " . $captchaFile);
-            error_log("Korrekte Antwort: " . $correctAnswer);
-            error_log("Benutzerantwort: " . $userAnswer);
+            $captchaData = json_decode(file_get_contents($captchaFile), true);
+            if ($captchaData === null) {
+                error_log("SEND-MAIL: Fehler beim Dekodieren der Captcha-Daten: " . json_last_error_msg());
+                error_log("SEND-MAIL: Dateiinhalt: " . file_get_contents($captchaFile));
+            }
+            
+            $correctAnswer = isset($captchaData['result']) ? (int)$captchaData['result'] : null;
+            $timestamp = isset($captchaData['timestamp']) ? (int)$captchaData['timestamp'] : null;
+            
+            error_log("SEND-MAIL: Korrekte Antwort: " . $correctAnswer);
+            error_log("SEND-MAIL: Benutzerantwort: " . $userAnswer);
             
             // Lösche die Datei, um Wiederverwendung zu verhindern
-            unlink($captchaFile);
+            if (!unlink($captchaFile)) {
+                error_log("SEND-MAIL: Konnte Captcha-Datei nicht löschen: $captchaFile");
+            }
             
             // Überprüfe, ob das Captcha nicht älter als 10 Minuten ist
-            if (time() - $timestamp > 600) {
-                error_log("Captcha abgelaufen");
+            if ($timestamp && time() - $timestamp > 600) {
+                error_log("SEND-MAIL: Captcha abgelaufen");
                 
                 // Puffer leeren
                 ob_clean();
@@ -189,8 +203,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             
             // Überprüfe die Antwort
-            if ($userAnswer !== $correctAnswer) {
-                error_log("Captcha falsch: $userAnswer != $correctAnswer");
+            if ($correctAnswer === null || $userAnswer !== $correctAnswer) {
+                error_log("SEND-MAIL: Captcha falsch: $userAnswer != $correctAnswer");
                 
                 // Puffer leeren
                 ob_clean();
@@ -202,15 +216,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit;
             }
             
-            error_log("Captcha korrekt gelöst");
+            error_log("SEND-MAIL: Captcha korrekt gelöst");
         } else {
-            error_log("Captcha-Token nicht gefunden: $token");
-            error_log("Temp-Verzeichnis: " . $tempDir);
-            error_log("Dateien im Temp-Verzeichnis: " . print_r(scandir($tempDir), true));
-            
-            // Überprüfe Berechtigungen
-            error_log("Temp-Verzeichnis existiert: " . (file_exists($tempDir) ? 'Ja' : 'Nein'));
-            error_log("Temp-Verzeichnis ist beschreibbar: " . (is_writable($tempDir) ? 'Ja' : 'Nein'));
+            error_log("SEND-MAIL: Captcha-Datei nicht gefunden: $captchaFile");
             
             // Puffer leeren
             ob_clean();
@@ -218,12 +226,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Content-Type-Header setzen
             header('Content-Type: application/json');
             
-            // Aktiviere die Captcha-Überprüfung wieder
             echo json_encode(['success' => false, 'message' => 'Bitte löse das Captcha erneut.']);
             exit;
         }
     } else {
-        error_log("Keine Captcha-Antwort oder Token erhalten");
+        error_log("SEND-MAIL: Keine Captcha-Antwort oder Token erhalten");
         
         // Puffer leeren
         ob_clean();
