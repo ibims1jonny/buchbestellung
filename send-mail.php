@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 // Einfache Funktion zum Laden von .env-Dateien
 function loadEnv($path) {
     if (!file_exists($path)) {
+        error_log("ENV-Datei nicht gefunden: $path");
         return false;
     }
     
@@ -14,6 +15,16 @@ function loadEnv($path) {
     foreach ($lines as $line) {
         // Kommentare überspringen
         if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+        
+        // Leere Zeilen überspringen
+        if (empty(trim($line))) {
+            continue;
+        }
+        
+        // Prüfen, ob die Zeile ein '=' enthält
+        if (strpos($line, '=') === false) {
             continue;
         }
         
@@ -30,13 +41,40 @@ function loadEnv($path) {
         
         putenv("$name=$value");
         $_ENV[$name] = $value;
+        $_SERVER[$name] = $value; // Auch in $_SERVER setzen für bessere Kompatibilität
     }
     
     return true;
 }
 
+// Absoluten Pfad zur .env-Datei bestimmen
+$envPath = __DIR__ . '/.env';
+
+// Debug-Ausgabe zum Testen
+error_log("Versuche .env zu laden von: $envPath");
+error_log("Datei existiert: " . (file_exists($envPath) ? 'Ja' : 'Nein'));
+
 // .env-Datei laden
-loadEnv(__DIR__ . '/.env');
+$loaded = loadEnv($envPath);
+
+// Debug-Ausgabe zum Testen
+error_log("ENV geladen: " . ($loaded ? 'Ja' : 'Nein'));
+if ($loaded) {
+    error_log("ENV Variablen: " . print_r($_ENV, true));
+}
+
+// Fallback-Werte definieren, falls die .env-Datei nicht geladen werden kann
+if (!$loaded || empty($_ENV['SMTP_HOST'])) {
+    $_ENV['SMTP_HOST'] = 'smtp.world4you.com';
+    $_ENV['SMTP_USERNAME'] = 'noreply@jsteindl.at';
+    $_ENV['SMTP_PASSWORD'] = 'tun7GZA3mgd!tca_mwn';
+    $_ENV['SMTP_PORT'] = '587';
+    $_ENV['SMTP_ENCRYPTION'] = 'tls';
+    $_ENV['EMAIL_TO'] = 'jonathan.steindl@jsteindl.at';
+    $_ENV['EMAIL_FROM'] = 'noreply@jsteindl.at';
+    
+    error_log("Fallback-Werte für ENV-Variablen gesetzt");
+}
 
 // Logs-Verzeichnis erstellen, falls es nicht existiert
 $logDir = __DIR__ . '/logs';
