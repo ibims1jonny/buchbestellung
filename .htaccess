@@ -7,5 +7,5 @@
 # Passwortschutz für die gesamte Website
 AuthType Basic
 AuthName "Geschützter Bereich"
-AuthUserFile C:\xampp\htdocs\buchbestellung\.htpasswd
+AuthUserFile /opt/lampp/htdocs/buchbestellung/.htpasswd
 Require valid-user
