@@ -3,14 +3,14 @@ let captchaToken = '';
 
 // Captcha laden, wenn das Formular angezeigt wird
 function loadCaptcha() {
-    console.log("Lade Captcha...");
+    // console.log("Lade Captcha..."); // Debug-Ausgabe deaktiviert
     fetch('get-captcha.php')
         .then(response => {
-            console.log("Captcha-Antwort erhalten:", response);
+            // console.log("Captcha-Antwort erhalten:", response); // Debug-Ausgabe deaktiviert
             return response.json();
         })
         .then(data => {
-            console.log("Captcha-Daten:", data);
+            // console.log("Captcha-Daten:", data); // Debug-Ausgabe deaktiviert
             if (data.success) {
                 document.getElementById('captcha-question').textContent = data.captcha_question;
                 // Token speichern
@@ -27,7 +27,7 @@ function loadCaptcha() {
             }
         })
         .catch(error => {
-            console.error('Fehler beim Laden des Captchas:', error);
+            // console.error('Fehler beim Laden des Captchas:', error); // Debug-Ausgabe deaktiviert
         });
 }
 

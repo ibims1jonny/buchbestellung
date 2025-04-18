@@ -1,0 +1,10 @@
+# Zugriff auf Log-Dateien verbieten
+<FilesMatch "\.log$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Zusätzlicher Schutz für das gesamte Verzeichnis
+Options -Indexes
+Order deny,allow
+Deny from all

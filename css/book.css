@@ -71,6 +71,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .site-header .container {
@@ -87,6 +88,16 @@ a:hover {
 .logo-image {
   max-height: 120px;
   width: auto;
+  transition: all 0.3s ease;
+}
+
+/* Klasse für verkleinerten Header beim Scrollen */
+.site-header.scrolled {
+  padding: 0.7rem 0;
+}
+
+.site-header.scrolled .logo-image {
+  max-height: 60px;
 }
 
 .main-nav ul {
@@ -96,6 +107,11 @@ a:hover {
 
 .main-nav li {
   margin-left: 2rem;
+}
+
+/* Impressum-Link im Header ausblenden */
+.main-nav li.impressum-link {
+  display: none;
 }
 
 .main-nav a {
@@ -291,6 +307,12 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-info p {
+  margin: 0;
+  padding: 0;
 }
 
 .footer-links {
@@ -299,11 +321,12 @@ a:hover {
 }
 
 .footer-links a {
-  color: var(--light-color);
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 1rem;
 }
 
 .footer-links a:hover {
-  color: var(--white);
   text-decoration: underline;
 }
 

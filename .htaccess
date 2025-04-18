@@ -1,0 +1,11 @@
+# Schutz sensibler Dateien
+<FilesMatch "^\.env">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Passwortschutz für die gesamte Website
+AuthType Basic
+AuthName "Geschützter Bereich"
+AuthUserFile /opt/lampp/htdocs/buchbestellung/.htpasswd
+Require valid-user

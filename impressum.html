@@ -13,9 +13,23 @@
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="96x96" href="bilder/favicon.png">
+
+  <script>
+    // Sofort ausgeführtes Skript für den scrollenden Header
+    document.addEventListener('DOMContentLoaded', function() {
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.site-header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    });
+  </script>
 </head>
 
-<body>
+<body onscroll="handleScroll()">
   <div class="site-wrapper">
     <header class="site-header">
       <div class="container">
@@ -75,5 +89,16 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    function handleScroll() {
+      const header = document.querySelector('.site-header');
+      if (window.pageYOffset > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  </script>
 </body>
 </html> 

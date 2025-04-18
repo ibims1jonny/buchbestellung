@@ -22,10 +22,10 @@ session_start();
 error_log("SEND-MAIL: Session-ID: " . session_id());
 error_log("SEND-MAIL: SESSION-Daten: " . print_r($_SESSION, true));
 
-// Fehlermeldungen aktivieren (während der Entwicklung)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Fehlermeldungen deaktivieren für Produktion
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ERROR); // Nur schwerwiegende Fehler melden
 
 // Einfache Funktion zum Laden von .env-Dateien
 function loadEnv($path) {
@@ -344,7 +344,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     try {
         // Server-Einstellungen
-        $mail->SMTPDebug = 2;                      // Debug-Ausgabe aktivieren
+        $mail->SMTPDebug = 0; // Debug-Ausgabe deaktivieren
         $mail->Debugoutput = function($str, $level) use ($smtpLogFile) {
             file_put_contents($smtpLogFile, date('Y-m-d H:i:s').": $str\n", FILE_APPEND);
         };

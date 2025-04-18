@@ -121,9 +121,23 @@
       }
     }
   </style>
+
+  <script>
+    // Sofort ausgeführtes Skript für den scrollenden Header
+    document.addEventListener('DOMContentLoaded', function() {
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.site-header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    });
+  </script>
 </head>
 
-<body>
+<body onscroll="handleScroll()">
   <div class="site-wrapper">
     <header class="site-header">
       <div class="container">
@@ -132,7 +146,7 @@
         </a>
         <nav class="main-nav">
           <ul>
-            <li><a href="impressum.html">Impressum</a></li>
+            <!-- Impressum-Link entfernt -->
           </ul>
         </nav>
       </div>
@@ -250,6 +264,16 @@
       const addressGroup = document.getElementById('address-group');
       const resultDiv = document.getElementById('order-result');
       
+      // Header-Größe beim Scrollen anpassen
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.site-header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
       // Adressfeld anzeigen/ausblenden basierend auf der Lieferoption
       function updateAddressVisibility() {
         if (deliverySelect.value === 'shipping') {
@@ -271,15 +295,17 @@
       form.addEventListener('submit', function(event) {
         event.preventDefault(); // Standard-Formularverhalten verhindern
         
-        console.log("Formular wird abgesendet...");
+        // console.log("Formular wird abgesendet..."); // Debug-Ausgabe deaktiviert
         
         // Formulardaten sammeln
         const formData = new FormData(form);
         
         // Formulardaten zur Überprüfung ausgeben
+        /*
         for (let pair of formData.entries()) {
             console.log(pair[0] + ': ' + pair[1]);
         }
+        */
         
         // AJAX-Anfrage senden
         fetch('send-mail.php', {
@@ -287,7 +313,7 @@
             body: formData
         })
         .then(response => {
-            console.log("Antwort erhalten:", response);
+            // console.log("Antwort erhalten:", response); // Debug-Ausgabe deaktiviert
             
             // Überprüfen, ob die Antwort erfolgreich war
             if (!response.ok) {
@@ -297,14 +323,14 @@
             // Überprüfen, ob die Antwort JSON ist
             const contentType = response.headers.get('content-type');
             if (!contentType || !contentType.includes('application/json')) {
-                console.error('Unerwarteter Content-Type:', contentType);
+                // console.error('Unerwarteter Content-Type:', contentType); // Debug-Ausgabe deaktiviert
                 throw new Error('Antwort ist kein JSON');
             }
             
             return response.json();
         })
         .then(data => {
-            console.log("Verarbeitete Daten:", data);
+            // console.log("Verarbeitete Daten:", data); // Debug-Ausgabe deaktiviert
             
             // Erfolgs- oder Fehlermeldung anzeigen
             resultDiv.innerHTML = data.message;
@@ -331,7 +357,7 @@
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
-            console.error('Fehler:', error);
+            // console.error('Fehler:', error); // Debug-Ausgabe deaktiviert
             resultDiv.innerHTML = 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
             resultDiv.className = 'error-message';
             resultDiv.style.display = 'block';
@@ -364,7 +390,16 @@
     });
   </script>
 
-  <!-- Vor dem schließenden </body> Tag -->
+  <script>
+    function handleScroll() {
+      const header = document.querySelector('.site-header');
+      if (window.pageYOffset > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  </script>
   <script src="js/captcha.js"></script>
 </body>
 </html> 
