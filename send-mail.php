@@ -438,7 +438,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Content-Type: application/json');
     echo json_encode([
         'success' => true,
-        'captcha_question' => "Was ist $num1 + $num2?",
+        'captcha_question' => "Bitte lösen sie das Captcha:\nWas ist $num1 + $num2?",
         'token' => $token
     ]);
     exit;

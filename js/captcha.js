@@ -12,7 +12,10 @@ function loadCaptcha() {
         .then(data => {
             // console.log("Captcha-Daten:", data); // Debug-Ausgabe deaktiviert
             if (data.success) {
+                // Lade-Text aus dem captcha-question entfernen
                 document.getElementById('captcha-question').textContent = data.captcha_question;
+                // Titel setzen
+                document.getElementById('captcha-title').textContent = "Bitte lösen sie das Captcha:";
                 // Token speichern
                 captchaToken = data.token;
                 // Token in ein verstecktes Feld einfügen

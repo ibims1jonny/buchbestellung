@@ -120,6 +120,16 @@
         gap: 0;
       }
     }
+    
+    #captcha-question {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .captcha-title {
+      display: block;
+      margin-bottom: 5px;
+    }
   </style>
 
   <script>
@@ -212,7 +222,8 @@
             
             <!-- Captcha-Bereich -->
             <div class="form-group" id="captcha-container">
-                <label for="captcha_answer" id="captcha-question">Bitte warte, Captcha wird geladen...</label>
+                <div id="captcha-title" class="captcha-title">Bitte lösen sie das Captcha:</div>
+                <label for="captcha_answer" id="captcha-question"></label>
                 <input type="number" class="form-control" id="captcha_answer" name="captcha_answer" required>
             </div>
             
